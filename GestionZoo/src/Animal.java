@@ -1,21 +1,26 @@
 
-public class Animal {
-	
+abstract class Animal {
+
 	private int identifiant  ;
 	private String nomAnimal ;
 	private double poids     ;
-	
+
 	private static int compteur = 1 ;
-	
+
 	public Animal(String nomAnimal, double poids)
 	{
 		this.identifiant = compteur ;
 		Animal.compteur++           ;
-		
+
 		this.nomAnimal = nomAnimal  ;
 		this.poids = poids          ;
 	}
-	
+
+	abstract calculRation()
+	{
+
+	}
+
 	public String toString()
 	{
 		StringBuilder s = new StringBuilder() ;
