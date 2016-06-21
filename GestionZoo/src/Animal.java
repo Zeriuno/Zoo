@@ -1,35 +1,20 @@
 
-abstract class Animal {
+public abstract class Animal {
+private int id;
+private String name;
+protected double poids;
+private static int cpt=0;
 
-	private int identifiant  ;
-	private String nomAnimal ;
-	private double poids     ;
+public Animal(String name, double poids){
+	this.name=name;
+	this.poids=poids;
+	this.id=cpt++;
+}
 
-	private static int compteur = 1 ;
+public String toString(){
+	return name+", n°"+id+", "+poids+"kg";
+}
 
-	public Animal(String nomAnimal, double poids)
-	{
-		this.identifiant = compteur ;
-		Animal.compteur++           ;
+public abstract Ration calculRation();
 
-		this.nomAnimal = nomAnimal  ;
-		this.poids = poids          ;
-	}
-
-	abstract calculRation()
-	{
-
-	}
-
-	public String toString()
-	{
-		StringBuilder s = new StringBuilder() ;
-		s.append(identifiant)               ;
-		s.append(", ")                      ;
-		s.append(nomAnimal)                 ;
-		s.append(", ")                      ;
-		s.append(poids)                     ;
-		s.append(" Kg\n")                   ;
-		return s.toString()                 ;
-	}
 }
